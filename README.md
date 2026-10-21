@@ -9,7 +9,7 @@ Busca el bloque `EDITA AQUÍ` casi al final del archivo:
 
 ```js
 const CONFIG = {
-  whatsapp: "",            // Ejemplo Colombia: "573001234567" (indicativo + número, sin + ni espacios)
+  whatsapp: "",            // Ya configurado con +57 316 822 2170
   products: [
     {shape:"round", name:"Redonda", desc:"...", price:"", img:""},
     ...
