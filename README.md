@@ -1,2 +1,0 @@
-# LUMINAVISION
-venta de lentes
