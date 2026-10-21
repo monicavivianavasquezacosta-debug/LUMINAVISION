@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lumina Visión · Tu visión, tu estilo</title>
+<meta name="description" content="Gafas con estilo propio y asesoría directa por WhatsApp. Elige tu montura con Lumina Visión.">
+<meta property="og:title" content="Lumina Visión">
+<meta property="og:description" content="Gafas con estilo propio y asesoría directa por WhatsApp.">
+<meta property="og:image" content="assets/poster.jpg">
+<meta name="theme-color" content="#0E1A33">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
+<style>
+/* Concepto: una sola pantalla que vende. Banda azul tinta con el video como protagonista,
+   después fondo claro, esquinas casi vivas y un único toque de latón (el destello). */
+:root{
+  --bg:#F6F7F9; --panel:#FFFFFF; --soft:#E8ECF2; --fg:#0E1A33; --muted:#546079; --line:#CBD2DE;
+  --accent:#2F5DA8; --brass:#B58A3C;
+  --btn-bg:#0E1A33; --btn-fg:#F3F5F9;
+  --band:#0E1A33; --band-soft:#1F3A6B; --on-band:#F3F5F9; --on-band-muted:#B7C1D6; --brass-band:#D9B26A;
+  --f-display:"Jost",Futura,"Century Gothic",system-ui,sans-serif;
+  --f-text:"Source Serif 4",Georgia,serif;
+  --gutter-max:1160px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0B1426; --panel:#121F38; --soft:#1A2A4A; --fg:#ECEFF5; --muted:#A7B1C6; --line:#2A3A5C;
+  --accent:#8FB1EA; --brass:#D9B26A; --btn-bg:#D9B26A; --btn-fg:#0E1A33; --band:#13254A; --band-soft:#1F3A6B; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0B1426; --panel:#121F38; --soft:#1A2A4A; --fg:#ECEFF5; --muted:#A7B1C6; --line:#2A3A5C;
+  --accent:#8FB1EA; --brass:#D9B26A; --btn-bg:#D9B26A; --btn-fg:#0E1A33; --band:#13254A; --band-soft:#1F3A6B; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-text);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+img,svg,video{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3{font-family:var(--f-display);font-weight:500;line-height:1.1;margin:0;text-wrap:balance}
+p{margin:0}
+.wrap{width:100%;max-width:var(--gutter-max);margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.logo{display:block;height:auto}
+.logo .sp{fill:var(--brass)}
+
+/* Botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 24px;border-radius:6px;border:1px solid transparent;
+  font:500 15px/20px var(--f-display);letter-spacing:.2px;text-decoration:none;cursor:pointer;background:var(--btn-bg);color:var(--btn-fg);transition:transform .15s ease,background .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--fg);border-color:var(--fg)}
+.band .btn{background:var(--brass-band);color:#0E1A33}
+.band .btn.ghost{background:transparent;color:var(--on-band);border-color:var(--on-band)}
+
+/* Encabezado */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
+.top .logo{width:200px;color:var(--fg)}
+.nav{display:flex;align-items:center;gap:28px;font:400 15px/20px var(--f-display)}
+.nav a.lnk{text-decoration:none;padding:8px 0;border-bottom:1px solid transparent}
+.nav a.lnk:hover{border-bottom-color:var(--fg)}
+.nav .btn{min-height:44px;padding:10px 18px}
+
+/* Hero */
+.band{background:var(--band);color:var(--on-band);--brass:#D9B26A}
+.hero{padding-block:clamp(40px,6vw,88px)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,72px);align-items:center}
+.hero h1{font-size:clamp(40px,5.6vw,68px);letter-spacing:-.5px;line-height:1.02}
+.hero .lead{margin-top:24px;font-size:19px;line-height:1.6;color:var(--on-band-muted);max-width:30em}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero .tag{margin-top:40px;font:400 14px/20px var(--f-display);letter-spacing:2px;color:var(--brass-band)}
+.vid{position:relative;border-radius:2px;overflow:hidden;background:#07101F;aspect-ratio:16/9;max-width:100%}
+.vid video{display:block;width:100%;height:100%;object-fit:cover}
+.vid button{position:absolute;right:12px;bottom:12px;min-height:40px;padding:8px 14px;border-radius:6px;border:1px solid rgba(243,245,249,.6);background:rgba(14,26,51,.78);color:#F3F5F9;font:500 14px/20px var(--f-display);cursor:pointer}
+
+/* Secciones */
+section{padding-block:clamp(56px,8vw,104px)}
+.head{max-width:44rem;display:grid;gap:16px;margin-bottom:clamp(32px,4vw,56px)}
+.head h2{font-size:clamp(30px,4vw,44px);letter-spacing:-.3px}
+.head p{color:var(--muted);font-size:18px;line-height:1.65}
+
+/* Colección */
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:2px;display:flex;flex-direction:column;min-width:0}
+.card .art{background:var(--soft);aspect-ratio:5/3;display:flex;align-items:center;justify-content:center;color:var(--fg);padding:20px}
+.card .art svg{width:100%;height:auto;max-height:100%}
+.card .art img{width:100%;height:100%;object-fit:cover}
+.card .body{padding:20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card h3{font-size:22px}
+.card p{color:var(--muted);font-size:16px;line-height:1.55}
+.card .price{font:500 15px/20px var(--f-display);margin-top:auto;padding-top:8px}
+.card .btn{width:100%;min-height:44px;padding:10px 14px;font-size:14px}
+.note{margin-top:28px;color:var(--muted);font-size:16px}
+
+/* Razones */
+.why .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,88px);align-items:start}
+.why .mark{width:min(100%,260px);color:var(--fg)}
+.why .big{font:500 clamp(26px,3.2vw,36px)/1.2 var(--f-display);margin-top:28px;max-width:16em;text-wrap:balance}
+.why ul{list-style:none;margin:0;padding:0}
+.why li{padding:28px 0;border-top:1px solid var(--line);display:grid;gap:8px}
+.why li:last-child{border-bottom:1px solid var(--line)}
+.why li h3{font-size:22px}
+.why li p{color:var(--muted)}
+
+/* Cómo comprar (secuencia real) */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;counter-reset:s}
+.steps li{counter-increment:s;border-top:2px solid var(--fg);padding-top:20px;display:grid;gap:10px;align-content:start}
+.steps li::before{content:counter(s);font:500 40px/1 var(--f-display);color:var(--brass)}
+.steps h3{font-size:22px}
+.steps p{color:var(--muted)}
+
+/* Asesoría */
+.advice{background:var(--soft)}
+.advice .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(28px,5vw,72px);align-items:start}
+.advice .head{margin:0}
+form{background:var(--panel);border:1px solid var(--line);border-radius:2px;padding:clamp(20px,3vw,32px);display:grid;gap:18px}
+label{display:grid;gap:6px;font:500 15px/20px var(--f-display)}
+input,select,textarea{font:400 16px/24px var(--f-text);color:var(--fg);background:var(--bg);border:1px solid #7C879E;border-radius:2px;padding:12px;width:100%;min-height:48px}
+textarea{min-height:110px;resize:vertical}
+form .hint{font:400 14px/20px var(--f-display);color:var(--muted)}
+
+/* Preguntas */
+.faq{max-width:46rem}
+details{border-top:1px solid var(--line)}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:20px 0;font:500 19px/1.3 var(--f-display);display:flex;justify-content:space-between;gap:16px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:26px;line-height:1;color:var(--brass);flex:none}
+details[open] summary::after{content:"−"}
+details p{padding:0 0 22px;color:var(--muted);max-width:40rem}
+
+/* Cierre */
+.closing{padding-block:clamp(56px,8vw,96px)}
+.closing .wrap{display:grid;gap:28px;justify-items:start}
+.closing h2{font-size:clamp(32px,4.6vw,54px);max-width:16em;letter-spacing:-.4px}
+.closing p{color:var(--on-band-muted);max-width:34rem;font-size:18px}
+footer{--brass:#D9B26A;background:var(--band);color:var(--on-band);border-top:1px solid var(--band-soft);padding-block:32px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-between;align-items:center}
+footer .logo{width:190px;color:var(--on-band)}
+footer p{font:400 14px/20px var(--f-display);color:var(--on-band-muted)}
+
+/* WhatsApp flotante en móvil */
+.float{display:none;position:fixed;z-index:25;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));box-shadow:0 6px 20px rgba(14,26,51,.35)}
+
+@media (max-width:980px){
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero .wrap,.why .wrap,.advice .wrap{grid-template-columns:minmax(0,1fr)}
+  .steps{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:760px){
+  .nav .lnk,.nav .btn{display:none}
+  .top .logo{width:170px}
+  .float{display:inline-flex}
+  .hero .cta .btn{flex:1 1 100%}
+}
+@media (max-width:520px){
+  .grid{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a href="#inicio" aria-label="Lumina Visión, inicio"><svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 649 75" role="img" aria-label="Lumina Visión"><defs><clipPath id="lv-clip-7737"><rect x="-4" y="0" width="514.70" height="48.0"/></clipPath></defs><g transform="translate(-8.32 -24.96) scale(0.52)"><path d="M16,120 A111.111,111.111 0 0 1 224,120 A111.111,111.111 0 0 1 16,120 Z M16,120 A133.160,133.160 0 0 1 224,120 A116.915,116.915 0 0 1 16,120 Z" fill="currentColor" fill-rule="evenodd"/><circle cx="120" cy="123" r="38" fill="currentColor"/><path d="M120.00,98.00 Q124.00,119.00 145.00,123.00 Q124.00,127.00 120.00,148.00 Q116.00,127.00 95.00,123.00 Q116.00,119.00 120.00,98.00 Z" class="sp"/></g><g transform="translate(142.16 13.44)"><g fill="none" stroke="currentColor" stroke-width="4.6" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt"><g clip-path="url(#lv-clip-7737)"><path transform="translate(79.50 0)" d="M2.3,48.0 L2.3,0 L24.0,31.68 L45.7,0 L45.7,48.0"/><path transform="translate(154.10 0)" d="M2.3,48.0 L2.3,0 L33.7,48.0 L33.7,0"/><path transform="translate(201.10 0)" d="M0,54.0 L23.0,0 L46,54.0 M9.10,32.64 L36.90,32.64"/><path transform="translate(285.10 0)" d="M0,-6 L23.0,48.0 L46,-6"/><path transform="translate(470.70 0)" d="M2.3,48.0 L2.3,0 L33.7,48.0 L33.7,0"/></g><path transform="translate(0.00 0)" d="M2.3,0 L2.3,45.7 L26,45.7"/><path transform="translate(34.50 0)" d="M2.3,0 L2.3,31.000000000000004 A14.7,14.7 0 0 0 31.7,31.000000000000004 L31.7,0"/><path transform="translate(138.50 0)" d="M2.3,0 L2.3,48.0"/><path transform="translate(342.10 0)" d="M2.3,0 L2.3,48.0"/><path transform="translate(357.70 0)" d="M20.27,6.16 A10.05,10.05 0 1 0 12.35,22.40 A10.05,10.05 0 1 1 4.43,38.64"/><path transform="translate(393.90 0)" d="M2.3,0 L2.3,48.0"/><path transform="translate(409.50 0)" d="M2.30,24.00 A22.80,22.80 0 1 1 47.90,24.00 A22.80,22.80 0 1 1 2.30,24.00 Z M21.90,-8.2 L29.30,-17.2"/></g></g></svg></a>
+    <nav class="nav" aria-label="Principal">
+      <a class="lnk" href="#coleccion">Monturas</a>
+      <a class="lnk" href="#como">Cómo comprar</a>
+      <a class="lnk" href="#preguntas">Preguntas</a>
+      <a class="btn wa" href="#" target="_blank" rel="noopener" data-msg="Hola, quiero información sobre las gafas de Lumina Visión.">Escribir por WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="band hero">
+    <div class="wrap">
+      <div>
+        <h1>Mira primero lo que importa.</h1>
+        <p class="lead">Gafas con estilo propio y asesoría directa. Cuéntanos cómo ves y qué buscas, y te ayudamos a elegir la montura que va contigo.</p>
+        <div class="cta">
+          <a class="btn" href="#coleccion">Ver las monturas</a>
+          <a class="btn ghost" href="#asesoria">Pedir asesoría</a>
+        </div>
+        <p class="tag">Tu visión, tu estilo</p>
+      </div>
+      <div class="vid">
+        <video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="assets/poster.jpg" aria-label="Una mujer se pone unas gafas de montura oscura y sonríe a la cámara">
+          <source src="assets/hero.mp4" type="video/mp4">
+        </video>
+        <button type="button" id="snd" aria-pressed="false">Activar sonido</button>
+      </div>
+    </div>
+  </div>
+
+  <section id="coleccion">
+    <div class="wrap">
+      <div class="head">
+        <h2>Cuatro formas de enmarcar tu mirada</h2>
+        <p>Elige la que se parece a ti. Si dudas, te ayudamos a decidir según tu rostro y el uso que le darás a las gafas.</p>
+      </div>
+      <div class="grid" id="productos"></div>
+      <p class="note">¿No ves tu estilo? Escríbenos y te mostramos más opciones.</p>
+    </div>
+  </section>
+
+  <section class="why" style="background:var(--panel);border-block:1px solid var(--line)">
+    <div class="wrap">
+      <div>
+        <div class="mark"><svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Lumina Visión — isotipo"><defs></defs><g transform="translate(0 0)"><path d="M16,120 A111.111,111.111 0 0 1 224,120 A111.111,111.111 0 0 1 16,120 Z M16,120 A133.160,133.160 0 0 1 224,120 A116.915,116.915 0 0 1 16,120 Z" fill="currentColor" fill-rule="evenodd"/><circle cx="120" cy="123" r="38" fill="currentColor"/><path d="M120.00,98.00 Q124.00,119.00 145.00,123.00 Q124.00,127.00 120.00,148.00 Q116.00,127.00 95.00,123.00 Q116.00,119.00 120.00,98.00 Z" class="sp"/></g></svg></div>
+        <p class="big">Lumina es luz. Visión es mirada. Elegimos contigo cómo quieres que te vean.</p>
+      </div>
+      <ul>
+        <li><h3>Hablas con una persona</h3><p>Respondemos tus dudas por WhatsApp antes de que decidas, sin formularios largos ni esperas.</p></li>
+        <li><h3>Eliges con criterio</h3><p>Te explicamos por qué una montura te queda bien: forma del rostro, uso diario y estilo personal.</p></li>
+        <li><h3>Un estilo que se reconoce</h3><p>Monturas elegidas por su diseño y su comodidad, para que las uses todos los días y no solo una temporada.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="como">
+    <div class="wrap">
+      <div class="head">
+        <h2>Cómo comprar</h2>
+        <p>Todo el proceso es una conversación. Tú decides en cada paso.</p>
+      </div>
+      <ol class="steps">
+        <li><h3>Cuéntanos qué buscas</h3><p>Escríbenos por WhatsApp y dinos si quieres gafas formuladas, de sol o con filtro de luz azul.</p></li>
+        <li><h3>Elige tu montura</h3><p>Te recomendamos modelos y tallas según lo que nos cuentes y te enviamos fotos para comparar.</p></li>
+        <li><h3>Confirma tu pedido</h3><p>Te indicamos las formas de pago y cómo llega tu pedido a tu ciudad.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="advice" id="asesoria">
+    <div class="wrap">
+      <div class="head">
+        <h2>Pide tu asesoría</h2>
+        <p>Llena estos datos y abrimos WhatsApp con tu mensaje ya escrito. Tú revisas el texto y decides si lo envías.</p>
+      </div>
+      <form id="advForm" autocomplete="off">
+        <label for="f-name">Tu nombre
+          <input id="f-name" name="name" type="text" placeholder="Nombre y apellido">
+        </label>
+        <label for="f-type">¿Qué estás buscando?
+          <select id="f-type" name="type">
+            <option>Gafas formuladas</option>
+            <option>Gafas de sol</option>
+            <option>Filtro de luz azul</option>
+            <option>Aún no lo sé, necesito orientación</option>
+          </select>
+        </label>
+        <label for="f-note">Cuéntanos más (estilo, uso, ciudad)
+          <textarea id="f-note" name="note" placeholder="Ejemplo: uso gafas todo el día frente al computador y busco algo discreto."></textarea>
+        </label>
+        <a class="btn wa" id="advBtn" href="#" target="_blank" rel="noopener">Abrir WhatsApp con mi mensaje</a>
+        <p class="hint">No guardamos estos datos en esta página. Solo se usan para escribir el mensaje.</p>
+      </form>
+    </div>
+  </section>
+
+  <section id="preguntas">
+    <div class="wrap">
+      <div class="head"><h2>Preguntas frecuentes</h2></div>
+      <div class="faq">
+        <details><summary>¿Puedo pedir gafas con mi fórmula?</summary><p>Escríbenos con tu fórmula y te confirmamos las monturas y los lentes disponibles para tu caso.</p></details>
+        <details><summary>¿Cómo sé qué talla me queda?</summary><p>Envíanos una foto de frente y, si las tienes, las medidas de tus gafas actuales. Con eso te recomendamos la talla.</p></details>
+        <details><summary>¿Cómo puedo pagar?</summary><p>Cuando confirmas tu pedido te indicamos las formas de pago disponibles.</p></details>
+        <details><summary>¿Hacen envíos a mi ciudad?</summary><p>Dinos tu ciudad por WhatsApp y te confirmamos cómo y en cuánto tiempo llega tu pedido.</p></details>
+        <details><summary>¿Puedo cambiar la montura si no me convence?</summary><p>Pregunta por las condiciones de cambio antes de comprar. Te las explicamos por escrito.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <div class="band closing">
+    <div class="wrap">
+      <h2>Elige tu montura con alguien que te escuche.</h2>
+      <p>Cuéntanos cómo ves y cómo quieres verte. Respondemos por WhatsApp.</p>
+      <a class="btn wa" href="#" target="_blank" rel="noopener" data-msg="Hola, quiero elegir mis gafas con Lumina Visión.">Escribir por WhatsApp</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 649 75" role="img" aria-label="Lumina Visión"><defs><clipPath id="lv-clipf-7737"><rect x="-4" y="0" width="514.70" height="48.0"/></clipPath></defs><g transform="translate(-8.32 -24.96) scale(0.52)"><path d="M16,120 A111.111,111.111 0 0 1 224,120 A111.111,111.111 0 0 1 16,120 Z M16,120 A133.160,133.160 0 0 1 224,120 A116.915,116.915 0 0 1 16,120 Z" fill="currentColor" fill-rule="evenodd"/><circle cx="120" cy="123" r="38" fill="currentColor"/><path d="M120.00,98.00 Q124.00,119.00 145.00,123.00 Q124.00,127.00 120.00,148.00 Q116.00,127.00 95.00,123.00 Q116.00,119.00 120.00,98.00 Z" class="sp"/></g><g transform="translate(142.16 13.44)"><g fill="none" stroke="currentColor" stroke-width="4.6" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt"><g clip-path="url(#lv-clipf-7737)"><path transform="translate(79.50 0)" d="M2.3,48.0 L2.3,0 L24.0,31.68 L45.7,0 L45.7,48.0"/><path transform="translate(154.10 0)" d="M2.3,48.0 L2.3,0 L33.7,48.0 L33.7,0"/><path transform="translate(201.10 0)" d="M0,54.0 L23.0,0 L46,54.0 M9.10,32.64 L36.90,32.64"/><path transform="translate(285.10 0)" d="M0,-6 L23.0,48.0 L46,-6"/><path transform="translate(470.70 0)" d="M2.3,48.0 L2.3,0 L33.7,48.0 L33.7,0"/></g><path transform="translate(0.00 0)" d="M2.3,0 L2.3,45.7 L26,45.7"/><path transform="translate(34.50 0)" d="M2.3,0 L2.3,31.000000000000004 A14.7,14.7 0 0 0 31.7,31.000000000000004 L31.7,0"/><path transform="translate(138.50 0)" d="M2.3,0 L2.3,48.0"/><path transform="translate(342.10 0)" d="M2.3,0 L2.3,48.0"/><path transform="translate(357.70 0)" d="M20.27,6.16 A10.05,10.05 0 1 0 12.35,22.40 A10.05,10.05 0 1 1 4.43,38.64"/><path transform="translate(393.90 0)" d="M2.3,0 L2.3,48.0"/><path transform="translate(409.50 0)" d="M2.30,24.00 A22.80,22.80 0 1 1 47.90,24.00 A22.80,22.80 0 1 1 2.30,24.00 Z M21.90,-8.2 L29.30,-17.2"/></g></g></svg>
+    <p id="contactLine">Tu visión, tu estilo</p>
+    <p>© 2026 Lumina Visión</p>
+  </div>
+</footer>
+
+<a class="btn float wa" href="#" target="_blank" rel="noopener" data-msg="Hola, quiero información sobre las gafas de Lumina Visión.">Escribir por WhatsApp</a>
+
+<script>
+/* ── EDITA AQUÍ ─────────────────────────────────────────────
+   whatsapp: número con indicativo de país y sin signos. Ejemplo Colombia: "573001234567".
+   price: texto del precio. Déjalo vacío para mostrar "Consulta el precio".
+   img: dirección de una foto del producto. Déjalo vacío para mostrar el dibujo de la montura. */
+const CONFIG = {
+  whatsapp: "",
+  products: [
+    {shape:"round",  name:"Redonda",       desc:"Líneas suaves que equilibran rostros angulares. Una mirada tranquila y cercana.", price:"", img:""},
+    {shape:"square", name:"Cuadrada",      desc:"Líneas firmes que dan estructura a rostros ovalados. Seria y segura.",             price:"", img:""},
+    {shape:"aviator",name:"Aviador",       desc:"Silueta ligera con puente doble, pensada para rostros alargados.",                  price:"", img:""},
+    {shape:"cat",    name:"Ojo de gato",   desc:"Esquinas elevadas que levantan la expresión. Para quien quiere que se note.",      price:"", img:""}
+  ]
+};
+
+const digits = String(CONFIG.whatsapp||"").replace(/\D/g,"");
+const wa = msg => "https://wa.me/" + digits + "?text=" + encodeURIComponent(msg);
+
+/* Dibujos de monturas (formas geométricas simples) */
+const SHAPES = {
+  round:`<circle cx="82" cy="62" r="40"/><circle cx="218" cy="62" r="40"/><path d="M122 56 Q150 38 178 56"/><path d="M42 58 L10 50"/><path d="M258 58 L290 50"/>`,
+  square:`<rect x="40" y="26" width="84" height="64" rx="10"/><rect x="176" y="26" width="84" height="64" rx="10"/><path d="M124 46 H176"/><path d="M40 40 L10 34"/><path d="M260 40 L290 34"/>`,
+  aviator:`<path d="M44 32 H124 Q128 82 90 96 Q50 100 44 32Z"/><path d="M176 32 H256 Q250 100 210 96 Q172 82 176 32Z"/><path d="M124 40 Q150 28 176 40"/><path d="M44 34 L12 30"/><path d="M256 34 L288 30"/>`,
+  cat:`<path d="M34 42 Q60 26 118 38 Q130 90 88 96 Q40 98 34 42Z"/><path d="M266 42 Q240 26 182 38 Q170 90 212 96 Q260 98 266 42Z"/><path d="M118 52 Q150 40 182 52"/><path d="M34 44 L10 34"/><path d="M266 44 L290 34"/>`
+};
+const frameSvg = key => `<svg viewBox="0 0 300 120" role="img" aria-label="Dibujo de una montura ${key}" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter">${SHAPES[key]}</svg>`;
+
+/* Colección */
+const grid = document.getElementById("productos");
+CONFIG.products.forEach(p=>{
+  const art = p.img ? `<img src="${p.img}" alt="Montura ${p.name}" loading="lazy">` : frameSvg(p.shape);
+  const price = p.price ? p.price : "Consulta el precio";
+  const li = document.createElement("article");
+  li.className = "card";
+  li.innerHTML = `<div class="art">${art}</div><div class="body"><h3></h3><p></p><p class="price"></p><a class="btn wa" target="_blank" rel="noopener" href="#">Preguntar por esta montura</a></div>`;
+  li.querySelector("h3").textContent = p.name;
+  li.querySelector(".body > p").textContent = p.desc;
+  li.querySelector(".price").textContent = price;
+  const b = li.querySelector(".btn");
+  b.dataset.msg = `Hola, me interesa la montura ${p.name} de Lumina Visión. ¿Me das más información?`;
+  grid.appendChild(li);
+});
+
+/* Enlaces de WhatsApp */
+document.querySelectorAll("a.wa[data-msg]").forEach(a=>{ a.href = wa(a.dataset.msg); });
+
+/* Formulario: arma el mensaje */
+const fName = document.getElementById("f-name"), fType = document.getElementById("f-type"), fNote = document.getElementById("f-note");
+const advBtn = document.getElementById("advBtn");
+function updAdv(){
+  const n = fName.value.trim();
+  let m = `Hola, ${n ? "soy " + n + " y " : ""}busco: ${fType.value.toLowerCase()}.`;
+  if (fNote.value.trim()) m += " " + fNote.value.trim();
+  m += " ¿Me ayudas a elegir?";
+  advBtn.href = wa(m);
+}
+[fName,fType,fNote].forEach(el=>el.addEventListener("input",updAdv));
+document.getElementById("advForm").addEventListener("submit",e=>e.preventDefault());
+updAdv();
+
+/* Número visible en el pie */
+if (digits) { document.getElementById("contactLine").textContent = "WhatsApp +" + digits; }
+
+/* Video */
+const v = document.getElementById("heroVideo"), snd = document.getElementById("snd");
+if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  v.removeAttribute("autoplay"); v.pause(); v.controls = true; snd.hidden = true;
+}
+snd.addEventListener("click",()=>{
+  v.muted = !v.muted;
+  if (!v.muted) { v.currentTime = 0; v.play().catch(()=>{}); }
+  snd.textContent = v.muted ? "Activar sonido" : "Silenciar";
+  snd.setAttribute("aria-pressed", String(!v.muted));
+});
+</script>
+
+</body>
+</html>
